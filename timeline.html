@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Timeline App</title>
+</head>
+<body>
+
+  <header>
+    <h1>LOGO</h1>
+    <button id="theme-toggle">Toggle Theme</button>
+  </header>
+
+  <nav>
+    <!-- Placeholder for future filters -->
+  </nav>
+
+  <main>
+    <section id="timeline">
+      <div id="year-buttons">
+        <button onclick="showContent('1900')">1900</button>
+        <button onclick="showContent('1920')">1920</button>
+        <button onclick="showContent('1940')">1940</button>
+        <button onclick="showContent('1960')">1960</button>
+      </div>
+
+      <article>
+        <figure>
+          <!-- Static image used for all years -->
+          <img src="computer.jpeg" alt="Timeline Image" width="300">
+          <figcaption>
+            <h2 id="event-title">1943: Invention of the Computer</h2>
+            <p id="event-description">
+              The first general-purpose electronic digital computer, known as the Electronic Numerical Integrator and Computer (ENIAC), was developed during World War II by J. Presper Eckert and John Mauchly.
+            </p>
+          </figcaption>
+        </figure>
+      </article>
+    </section>
+  </main>
+
+  <div id="modal"></div>
+
+  <script>
+    function showContent(year) {
+      const title = document.getElementById('event-title');
+      const description = document.getElementById('event-description');
+
+      const content = {
+        '1900': {
+          title: '1900: Beginning of a New Century',
+          description: 'The 20th century began with major scientific discoveries and the start of the industrial boom that would shape modern civilization.'
+        },
+        '1920': {
+          title: '1920: Rise of Communication',
+          description: 'The 1920s saw the rapid adoption of radio, transforming how people accessed news and entertainment.'
+        },
+        '1940': {
+          title: '1943: Invention of the Computer',
+          description: 'The first general-purpose electronic digital computer, known as the ENIAC, was developed during World War II by J. Presper Eckert and John Mauchly.'
+        },
+        '1960': {
+          title: '1960: The Space Age Begins',
+          description: 'The 1960s ushered in the era of space exploration, highlighted by Yuri Gagarin’s journey as the first human in space.'
+        }
+      };
+
+      // Update title and description only
+      if (content[year]) {
+        title.textContent = content[year].title;
+        description.textContent = content[year].description;
+      }
+    }
+  </script>
+
+</body>
+</html>
